@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 // scss
 import "../style/menu.scss";
 
+// data
 import sourceData from "../json/Products.json";
 
 export default function Menu() {

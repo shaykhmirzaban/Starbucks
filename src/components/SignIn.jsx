@@ -1,7 +1,29 @@
 // css
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/Signin.scss";
 
 export default function SignIn() {
+  let [userInfo, setUserInfo] = useState({
+    name: "",
+    password: "",
+  });
+  let navigate = useNavigate();
+
+  const check = (e) => {
+    let { name, value } = e.target;
+    setUserInfo((val) => {
+      return { ...val, [name]: value };
+    });
+  };
+
+  const showData = () => {
+    localStorage.setItem("name", userInfo.name);
+    localStorage.setItem("password", userInfo.password);
+    navigate("/profilePage");
+    window.location.reload(true);
+  };
+
   return (
     <section className="sign__in">
       <div className="heading">
@@ -10,8 +32,18 @@ export default function SignIn() {
       <div className="box1">
         <p>* indicates required field</p>
         <form>
-          <input type="text" placeholder="* Username or email address" />
-          <input type="text" placeholder="* Password" />
+          <input
+            type="text"
+            placeholder="* Username or email address"
+            name="name"
+            onChange={check}
+          />
+          <input
+            type="password"
+            placeholder="* Password"
+            name="password"
+            onChange={check}
+          />
         </form>
         <div className="checked">
           <input type="checkbox" />
@@ -35,7 +67,7 @@ export default function SignIn() {
         </div>
 
         <div className="button1">
-          <button>Sign in</button>
+          <button onClick={showData}>Sign in</button>
         </div>
       </div>
 

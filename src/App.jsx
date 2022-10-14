@@ -9,6 +9,7 @@ import FindStoreLocation from "./components/FindStoreLocation.jsx";
 import Menu from "./components/Menu.jsx";
 import Rewards from "./components/Rewards.jsx";
 import PageNotFound from "./components/PageNotFound.jsx";
+import ProfilePage from "./components/ProfilePage.jsx";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="store-location" element={<FindStoreLocation />} />
         <Route path="menu" element={<Menu />} />
         <Route path="rewards" element={<Rewards />} />
+        <Route path="profilePage/*" element={<ProfilePage />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

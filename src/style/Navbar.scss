@@ -108,6 +108,21 @@
           }
         }
       }
+      .userImage {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #3333;
+        cursor: pointer;
+
+        .fa-solid {
+          font-size: 1.5rem;
+          color: #006341;
+        }
+      }
     }
   }
 }
@@ -227,6 +242,21 @@
         }
       }
     }
+    .userImage {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #3333;
+      cursor: pointer;
+
+      .fa-solid {
+        font-size: 1.5rem;
+        color: #006341;
+      }
+    }
   }
 }
 
@@ -236,5 +266,8 @@
   }
   .mobileNavbar {
     display: block;
+  }
+  .mobileNavbar .dropDown_nav .userImage {
+    margin: 1rem;
   }
 }

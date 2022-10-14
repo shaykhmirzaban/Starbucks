@@ -1,9 +1,27 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // scss
 import "../style/Navbar.scss";
 
 export default function Navbar() {
+  let [flag, setFlag] = useState(true);
+  let navigate = useNavigate();
+
+  let a = localStorage.getItem("name");
+  let b = localStorage.getItem("password");
+
+  useEffect(() => {
+    if (a && b) {
+      setFlag(false);
+    } else {
+      setFlag(true);
+    }
+  }, [a, b]);
+
+  // let location = useLocation();
+  // console.log(location.state && location.state.name !== "" && location.state && location.state.password !== "");
+
   const showItem = () => {
     let drop = document.querySelector(".dropDown_nav");
     let body = document.querySelector("body");
@@ -61,14 +79,26 @@ export default function Navbar() {
                 Find a store
               </Link>
             </div>
-            <div className="buttons">
-              <Link to="sign in" className="white">
-                <button>Sign in</button>
-              </Link>
-              <Link to="create" className="dark">
-                <button>Join now</button>
-              </Link>
-            </div>
+            {flag ? (
+              <div className="buttons">
+                <Link to="sign in" className="white">
+                  <button>Sign in</button>
+                </Link>
+                <Link to="create" className="dark">
+                  <button>Join now</button>
+                </Link>
+              </div>
+            ) : (
+              <div className="userImage">
+                <p
+                  onClick={() => {
+                    navigate("/profilePage");
+                  }}
+                >
+                  <i className="fa-solid fa-image"></i>
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -121,14 +151,27 @@ export default function Navbar() {
               Find a store
             </Link>
           </div>
-          <div className="buttons">
-            <Link to="sign in" className="white" onClick={showItem}>
-              <button>Sign in</button>
-            </Link>
-            <Link to="create" className="dark" onClick={showItem}>
-              <button>Join now</button>
-            </Link>
-          </div>
+          {flag ? (
+            <div className="buttons">
+              <Link to="sign in" className="white" onClick={showItem}>
+                <button>Sign in</button>
+              </Link>
+              <Link to="create" className="dark" onClick={showItem}>
+                <button>Join now</button>
+              </Link>
+            </div>
+          ) : (
+            <div className="userImage">
+              <p
+                onClick={() => {
+                  navigate("/profilePage");
+                  showItem();
+                }}
+              >
+                <i className="fa-solid fa-image"></i>
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </>

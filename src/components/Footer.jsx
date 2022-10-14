@@ -11,19 +11,26 @@ export default function Footer() {
     <section className="footer">
       <div className="top">
         {footerItem.map((value, index) => {
-          let [show, setShow] = useState(false); 
+          let [show, setShow] = useState(false);
           return (
             <div className="part1" key={index}>
-              <p className="heading" onClick={show? () => setShow(false) : () => setShow(true)}>{value.heading}</p>
-              {show ? <ul>
-                {value.liItem.map((value, index) => {
-                  return (
-                    <li key={index}>
-                      <Link>{value}</Link>
-                    </li>
-                  );
-                })}
-              </ul> : null}
+              <p
+                className="heading"
+                onClick={show ? () => setShow(false) : () => setShow(true)}
+              >
+                {value.heading}
+              </p>
+              {show ? (
+                <ul>
+                  {value.liItem.map((value, index) => {
+                    return (
+                      <li key={index}>
+                        <Link>{value}</Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : null}
             </div>
           );
         })}
@@ -31,28 +38,42 @@ export default function Footer() {
 
       <div className="bottom">
         <ul className="social__icons">
-          <li style={{marginLeft: "0px"}}>
-            <a href=""><i className="fa-brands fa-spotify"></i></a>
+          <li style={{ marginLeft: "0px" }}>
+            <a href="">
+              <i className="fa-brands fa-spotify"></i>
+            </a>
           </li>
           <li>
-            <a href=""><i className="fa-brands fa-facebook-f"></i></a>
+            <a href="">
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
           </li>
           <li>
-            <a href=""><i className="fa-brands fa-pinterest-p"></i></a>
+            <a href="">
+              <i className="fa-brands fa-pinterest-p"></i>
+            </a>
           </li>
           <li>
-            <a href=""><i className="fa-brands fa-instagram"></i></a>
+            <a href="">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
           </li>
           <li>
-            <a href=""><i className="fa-brands fa-youtube"></i></a>
+            <a href="">
+              <i className="fa-brands fa-youtube"></i>
+            </a>
           </li>
           <li>
-            <a href=""><i className="fa-brands fa-twitter"></i></a>
+            <a href="">
+              <i className="fa-brands fa-twitter"></i>
+            </a>
           </li>
         </ul>
         <ul className="condition">
           <li>
-            <a href="" style={{paddingLeft: "0px"}}>Privacy Policy</a>
+            <a href="" style={{ paddingLeft: "0px" }}>
+              Privacy Policy
+            </a>
           </li>
           <li>
             <a href="">Terms of Use</a>

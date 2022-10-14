@@ -1,5 +1,5 @@
-// css
 import { useState } from "react";
+// scss
 import "../style/Create.scss";
 
 export default function Create() {
